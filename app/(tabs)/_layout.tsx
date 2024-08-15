@@ -13,6 +13,19 @@ export default function TabLayout() {
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
+        tabBarLabelPosition: 'below-icon',
+        tabBarStyle: {
+          paddingVertical: 5, 
+          minHeight: 60, 
+        },
+        tabBarLabelStyle: {
+          fontSize: 15, 
+          fontWeight: '600',
+          marginBottom: 4,
+        },
+        tabBarIconStyle: {
+          
+        },
       }}>
       <Tabs.Screen
         name="index"
@@ -32,6 +45,25 @@ export default function TabLayout() {
           ),
         }}
       />
+       <Tabs.Screen
+        name="community"
+        options={{
+          title: 'Community',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? 'people' : 'people-outline'} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="about"
+        options={{
+          title: 'About',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? 'information-circle' : 'information-circle-outline'} color={color} />
+          ),
+        }}
+      />
+      
     </Tabs>
   );
 }
